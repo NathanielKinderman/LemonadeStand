@@ -11,6 +11,8 @@ namespace LemonadeStand
         //member variable(has a)
         int dayCount;
         List<Day> days;
+        Store store;
+        Player player;
 
         //constructor
 
@@ -18,6 +20,8 @@ namespace LemonadeStand
         {
             days = new List<Day>();
             dayCount = 7;
+            store = new Store();
+            player = new Player();
         }
 
         //member method(can do)
@@ -37,19 +41,24 @@ namespace LemonadeStand
             bool menuActive = true;
             while (menuActive)
             {
-                Console.WriteLine("What you like to Do? \n"+" " +"Inventory; Make lemonade; Set price; Start selling.");
+                Console.WriteLine("What you like to Do? \n"+" " +"Inventory; Store; Recipe; Set price; Start selling.");
                 string choice = Console.ReadLine();
 
                 switch (choice)
                 {
                     case "Inventory":
                         Console.WriteLine("Here is your Inventory:");
-                        // make function to display player inventory and call it here
                         break;
 
-                    case "Make Lemonade":
+                    case "Store":
+                        Console.WriteLine("Here is the Store");
+                        store.ShowStoreMenu();
+                        break;
+
+                    case "Recipe":
                         Console.WriteLine("Here is your Lemonade Recipe:");
                         // menu to view and modify recipe
+                        player.ShowLemonadeEquation();                        
                         break;
 
                     case "Set Price":

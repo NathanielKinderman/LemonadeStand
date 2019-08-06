@@ -24,6 +24,7 @@ namespace LemonadeStand
             while (storeMenu)
             {
                 Console.WriteLine("What would you like buy? Type: Lemons, Cups, Sugar, Ice or Back to Game Menu");
+                string choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "Lemons":
