@@ -16,6 +16,6 @@ namespace LemonadeStand
 
 
 
-        //member method(can do)
+        //member method(can do)s
     }
 }

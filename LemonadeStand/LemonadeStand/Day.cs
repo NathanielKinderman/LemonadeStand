@@ -9,19 +9,25 @@ namespace LemonadeStand
     class Day
     {
         //member variable(has a)
-        int tempature;
-        string TodayWeather;
+        public int tempature;
+        public Weather weather;
 
 
         //constructor
         public Day()
         {
-            TodayWeather = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
-
+            //TodayWeather = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
+            weather = new Weather();
         }
 
 
-        //member method(can do)
+        ////member method(can do)
+        //public override void RandomWeather()
+        //{
+        //    Random rnd = new Random();
+        //    int weatherIndex = rnd.Next(3);
 
+        //    TodayWeather = RandomWeather[weatherIndex];
+        //}
     }
 }
