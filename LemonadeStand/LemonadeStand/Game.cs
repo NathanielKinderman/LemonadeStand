@@ -41,7 +41,7 @@ namespace LemonadeStand
             bool menuActive = true;
             while (menuActive)
             {
-                Console.WriteLine("What you like to Do? \n"+" " +"Inventory; Store; Recipe; Set price; Start selling.");
+                Console.WriteLine("What you like to Do? \n"+" " +"Inventory; Store; Recipe; Set Price; Start Selling.");
                 string choice = Console.ReadLine();
 
                 switch (choice)
@@ -63,6 +63,7 @@ namespace LemonadeStand
 
                     case "Set Price":
                         Console.WriteLine("Here is the price you are selling at:");
+                        player.SetUpPrice();
                         // function to udate lemonade price
                         break;
                     case "Start Selling":

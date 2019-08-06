@@ -9,10 +9,12 @@ namespace LemonadeStand
     class Customer
     {
         //member variable(has a)
-
-
-
+        //max willingness to pay
+        //temp threshhold
+        //base number
         //constructor
+              
+         
 
 
 
