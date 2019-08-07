@@ -9,7 +9,6 @@ namespace LemonadeStand
     class Day
     {
         //member variable(has a)
-        public int tempature;
         public Weather weather;
 
 

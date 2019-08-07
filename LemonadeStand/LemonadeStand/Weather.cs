@@ -11,7 +11,8 @@ namespace LemonadeStand
         //member variable(has a)
         //list for weather type
         
-        List<string> weather;
+        public List<string> forecastOptions;
+        public string forecast;
         public int tempature;
             
         
@@ -19,7 +20,7 @@ namespace LemonadeStand
         public Weather()
         {
             tempature = TodayTempature(50, 100);
-            weather = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy"};
+            forecastOptions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy"};
         }
         
         //random tempature generator
