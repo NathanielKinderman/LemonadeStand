@@ -13,6 +13,8 @@ namespace LemonadeStand
         List<Day> days;
         Store store;
         Player player;
+        Customer customer;
+        
 
         //constructor
 
@@ -22,6 +24,7 @@ namespace LemonadeStand
             dayCount = 7;
             store = new Store();
             player = new Player();
+            customer = new Customer();
         }
 
         //member method(can do)
@@ -32,7 +35,7 @@ namespace LemonadeStand
             for (int i =0; i < days.Count; i++)
             {
                 ShowGameMenu();
-
+                
             }
         }
 
@@ -90,8 +93,76 @@ namespace LemonadeStand
 
             }
         }
-        
 
+
+        //let all customers try to buy
+        //for each customer
+        //customer.DetermineBuying(player.inventory, weather, recipe, price)
+        public void DetermingIfBuying()
+        { 
+             void GetCustomerBaseChanceToBuy()
+            {
+                Random random = new Random();
+                customer.chanceToBuy = random.Next(40, 60);
+            }
+
+
+             void AdjustChanceBasedOnTemperature(Weather weather)
+            {
+                if (weather.tempature < 50)
+                {
+                    customer.chanceToBuy -= 10;
+                }
+                else if (weather.tempature >= 51 && weather.tempature <= 60)
+                {
+                   customer.chanceToBuy -= 5;
+                }
+                else if (weather.tempature >= 61 && weather.tempature <= 70)
+                {
+                    customer.chanceToBuy += 5;
+                }
+                else if (weather.tempature >= 71 && weather.tempature <= 80)
+                {
+                    customer.chanceToBuy += 10;
+                }
+                else if (weather.tempature >= 81 && weather.tempature <= 90)
+                {
+                    customer.chanceToBuy += 15;
+                }
+                else
+                {
+                    customer.chanceToBuy += 20;
+                }
+            }
+
+             void AdjustChanceBasedOnForecast(Weather weather)
+            {
+                if (weather.forecast == "Sunny")
+                {
+                    customer.chanceToBuy += 20;
+                }
+                else if (weather.forecast == "Hazy")
+                {
+                    customer.chanceToBuy += 10;
+                }
+                else if (weather.forecast == "Cloudy")
+                {
+                    customer.chanceToBuy += 0;
+                }
+                else if (weather.forecast == "Rainy")
+                {
+                    customer.chanceToBuy -= 10;
+                }
+            }
+
+
+
+
+
+
+
+
+        }
 
         
         

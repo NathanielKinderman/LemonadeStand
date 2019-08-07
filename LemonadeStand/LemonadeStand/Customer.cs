@@ -14,44 +14,35 @@ namespace LemonadeStand
         //base number percent to buy, will flex do to weather, temp, price
         // ind x = rng.Next(1-101) chance to buy compare two numbers
         public int chanceToBuy;
-        
+
 
 
 
 
 
         //constructor
-              
-         
 
+
+        public Customer()
+        {
+            GetCustomerBaseChanceToBuy();   
+        }
 
 
         //member method(can do)
 
 
-        public Int32 CustomerBaseChanceToBuy(int min,int max)
-        {
-                      
+        public void GetCustomerBaseChanceToBuy()
+        {                  
                 Random random = new Random();
-                return random.Next(40, 60);
-            
+                chanceToBuy = random.Next(40, 60);
         }
-        public Int32 ActualCustomerChanceToBuy(int min,int max)
-        {
-           
-                Random random = new Random();
-                return random.Next(1, 100);
-            
-        } 
-
-
-
-
+    
 
         public void AdjustChanceBasedOnTemperature(Weather weather)
         {
             if (weather.tempature < 50)
-            {
+            { 
                 chanceToBuy -= 10;
             }
             else if (weather.tempature >= 51 && weather.tempature <= 60)
