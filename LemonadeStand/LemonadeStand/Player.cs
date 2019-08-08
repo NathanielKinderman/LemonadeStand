@@ -9,12 +9,10 @@ namespace LemonadeStand
     class Player
     {
         //member variable(has a)
-
-
+        //player can only have forecast
+        public Inventory inventory;
 
         //constructor
-
-
 
         //member method(can do)
 

@@ -14,6 +14,7 @@ namespace LemonadeStand
         Store store;
         Player player;
         Customer customer;
+        //sotre will be call to sell lemons
         
 
         //constructor
@@ -30,15 +31,32 @@ namespace LemonadeStand
         //member method(can do)
         public void RunGame()
         {
+            // days list example:
+            //var test = days[0].weather.tempature;
+            //customers[0].AdjustChanceBasedOnTasteAndRecipe();
+
             GetDays();
-            //display rules
+            
             for (int i =0; i < days.Count; i++)
             {
+
                 ShowGameMenu();
-                
+
+                //////
+                days[i].RunDay();
+
+            }
+            for (int i = 0; i < days.Count; i++)
+            {
+                //DetermineBuy(); 
             }
         }
 
+        //public string ShowGameRules
+        //{
+        //    Console.WriteLine("Here are the rules." "\n" + "You have......");
+        //}
+            
         public void ShowGameMenu()
         {
             bool menuActive = true;
@@ -71,6 +89,7 @@ namespace LemonadeStand
                         break;
                     case "Start Selling":
                         Console.WriteLine("Good luck");
+                        //RunDay();
                         menuActive = false;
                         //leave menu and start selling
                         break;
@@ -92,79 +111,6 @@ namespace LemonadeStand
                 days.Add(day);
 
             }
-        }
-
-
-        //let all customers try to buy
-        //for each customer
-        //customer.DetermineBuying(player.inventory, weather, recipe, price)
-        public void DetermingIfBuying()
-        { 
-             void GetCustomerBaseChanceToBuy()
-            {
-                Random random = new Random();
-                customer.chanceToBuy = random.Next(40, 60);
-            }
-
-
-             void AdjustChanceBasedOnTemperature(Weather weather)
-            {
-                if (weather.tempature < 50)
-                {
-                    customer.chanceToBuy -= 10;
-                }
-                else if (weather.tempature >= 51 && weather.tempature <= 60)
-                {
-                   customer.chanceToBuy -= 5;
-                }
-                else if (weather.tempature >= 61 && weather.tempature <= 70)
-                {
-                    customer.chanceToBuy += 5;
-                }
-                else if (weather.tempature >= 71 && weather.tempature <= 80)
-                {
-                    customer.chanceToBuy += 10;
-                }
-                else if (weather.tempature >= 81 && weather.tempature <= 90)
-                {
-                    customer.chanceToBuy += 15;
-                }
-                else
-                {
-                    customer.chanceToBuy += 20;
-                }
-            }
-
-             void AdjustChanceBasedOnForecast(Weather weather)
-            {
-                if (weather.forecast == "Sunny")
-                {
-                    customer.chanceToBuy += 20;
-                }
-                else if (weather.forecast == "Hazy")
-                {
-                    customer.chanceToBuy += 10;
-                }
-                else if (weather.forecast == "Cloudy")
-                {
-                    customer.chanceToBuy += 0;
-                }
-                else if (weather.forecast == "Rainy")
-                {
-                    customer.chanceToBuy -= 10;
-                }
-            }
-
-
-
-
-
-
-
-
-        }
-
-        
-        
+        }        
     }
 }

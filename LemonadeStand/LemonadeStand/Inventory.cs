@@ -9,7 +9,9 @@ namespace LemonadeStand
     class Inventory
     {
         //member variable(has a)
-
+        int lemons;
+        int sugar;
+        int ice;
 
 
         //constructor

@@ -13,18 +13,20 @@ namespace LemonadeStand
         
         public List<string> forecastOptions;
         public string forecast;
-        public int tempature;
+        public int actualTempature;
             
         
         //constructor
         public Weather()
         {
-            tempature = TodayTempature(50, 100);
-            forecastOptions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy"};
+            int temperatureShift = GenerateNumberWithinRange(-10, 11);
+            actualTempature = GenerateNumberWithinRange(50, 100) + temperatureShift;
+             forecastOptions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy"};
+            forecast = DisplayWeather();
         }
         
         //random tempature generator
-        public int TodayTempature(int min, int max)
+        public int GenerateNumberWithinRange(int min, int max)
         {
             Random random = new Random();
             return random.Next(min, max);
@@ -33,33 +35,18 @@ namespace LemonadeStand
 
 
         //member method(can do)
-        //if else statement for weather
-        //nested if else for the tempature with each weather
-        //private void DisplayWeather()
-        //{
+      
+        public string DisplayWeather()
+        {
+            int actualTempature = GenerateNumberWithinRange(50, 100);
+            int outsideWeather = GenerateNumberWithinRange(0, 4);
+            string weatherResult = forecastOptions[outsideWeather];
+            Console.WriteLine("Today is " + weatherResult + " and " + actualTempature);
+            return weatherResult;
 
-        //    if (Day[].weather.TodayWeather == "Sunny")
-        //    {
-        //        TodayTempature(80, 100);
-        //        Console.WriteLine("Today is Sunny and" +Day.TodayTempature); 
-        //    }
-                
-        //    else if(Day[].weather.TodayWeather == "Rainy")
-        //    {
-        //        TodayTempature(50, 70);
-        //        Console.WriteLine("Today is Rainy and" + Day.TodayTempature);
-        //    }
-        //    else if(Day[].weather.TodayWeather == "Cloudy")
-        //    {
-        //        TodayTempature(60, 80);
-        //        Console.WriteLine("Today is Cloudy and" + Day.TodayTempature);
-        //    }
-        //    else if(Day[].weather.TodayWeather == "Hazy")
-        //    {
-        //        TodayTempature(70, 90);
-        //        Console.WriteLine("Today is Hazy and" + Day.TodayTempature);
-        //    }
 
-        //}
+            
+
+        }
     }
 }

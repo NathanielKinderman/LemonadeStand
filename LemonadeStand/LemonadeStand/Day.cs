@@ -9,14 +9,23 @@ namespace LemonadeStand
     class Day
     {
         //member variable(has a)
+        //number of customers
         public Weather weather;
+        public List<string> actualForecastOption;
+        public int actualTempature;
 
 
         //constructor
         public Day()
         {
-            //TodayWeather = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
+            actualForecastOption = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
             weather = new Weather();
+            actualTempature = weather.GenerateNumberWithinRange(50,100);
+        }
+
+        public void RunDay()
+        {
+            // run the day
         }
 
 

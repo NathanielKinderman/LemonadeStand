@@ -10,15 +10,20 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-            //Customer testCustomer = new Customer();
-            //Weather testWeather = new Weather();
+            // Weather testWeather = new Weather();
+            //int x = testWeather.GenerateNumberWithinRange(1,100); 
 
-            //testWeather.forecast = "Sunny";
+            Weather testWeather = new Weather();
+            string testWeather1 = testWeather.DisplayWeather();
+            
 
-            //testCustomer.AdjustChanceBasedOnTemperature(testWeather);
 
-            Game game = new Game();
-            game.RunGame();
+
+
+
+
+            //Game game = new Game();
+            //game.RunGame();
 
             Console.ReadLine();
         }
