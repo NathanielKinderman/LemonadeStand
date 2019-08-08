@@ -13,17 +13,17 @@ namespace LemonadeStand
             // Weather testWeather = new Weather();
             //int x = testWeather.GenerateNumberWithinRange(1,100); 
 
-            Weather testWeather = new Weather();
-            string testWeather1 = testWeather.DisplayWeather();
-            
+            //Weather testWeather = new Weather();
+            //string testWeather1 = testWeather.DisplayWeather();
 
 
 
 
 
 
-            //Game game = new Game();
-            //game.RunGame();
+
+            Game game = new Game();
+            game.RunGame();
 
             Console.ReadLine();
         }

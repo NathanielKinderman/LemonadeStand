@@ -16,6 +16,7 @@ namespace LemonadeStand
         public int chanceToBuy;
         public int numberToCompare;
         string thisPref = "Sweet";
+        // public double wallet;
         
         public List<string> tastePrefence;
 
@@ -24,7 +25,8 @@ namespace LemonadeStand
 
 
         //constructor
-
+        //give every customer money to buy product
+        //double (5.00) = Customer.wallet;
 
         public Customer()
         {
@@ -42,9 +44,9 @@ namespace LemonadeStand
 
             AdjustChanceBasedOnTemperature(weather);
             AdjustChanceBasedOnForecast(weather);
-            //the price
+            //CanAffordLemonade(price)
          
-            // more adjustments
+            
 
             bool customerWillBuy = CustomerDecision();
             // CustomerDecision based on chance to buy
@@ -76,6 +78,13 @@ namespace LemonadeStand
             Random random = new Random();
             numberToCompare = random.Next(1, 100);
         }
+
+        //public void CanAffordLemonade()
+        //{
+        //    if(lemonadeprice == Customer wallet)
+              //  Customer.wallet - lemonade price = return results
+              //  results + player.wallet = Total profit
+        //}
 
 
         public void AdjustChanceBasedOnTemperature(Weather weather)
@@ -150,6 +159,14 @@ namespace LemonadeStand
                         chanceToBuy += 5;
                     }
                     break;
+
+                case "Cold":
+                    if (ice > 10)
+                    {
+                        chanceToBuy += 10;
+                    }
+                    break;
+
                 default:
                     break;
             }

@@ -13,9 +13,10 @@ namespace LemonadeStand
         List<Day> days;
         Store store;
         Player player;
-        Customer customer;
+        List<Customer> customers;
+        Player wallet;
         //sotre will be call to sell lemons
-        
+
 
         //constructor
 
@@ -25,39 +26,43 @@ namespace LemonadeStand
             dayCount = 7;
             store = new Store();
             player = new Player();
-            customer = new Customer();
+            customers = new List<Customer>();
         }
 
         //member method(can do)
         public void RunGame()
         {
-            // days list example:
-            //var test = days[0].weather.tempature;
-            //customers[0].AdjustChanceBasedOnTasteAndRecipe();
+            ShowGameRules();
+           
+           
 
             GetDays();
-            
-            for (int i =0; i < days.Count; i++)
+
+            for (int i = 0; i < days.Count; i++)
             {
 
                 ShowGameMenu();
 
                 //////
-                days[i].RunDay();
+               // days[i].RunDay();
+                for (int customer = 0; customer < days.Count; customer++)
+                {
+                   // Customer.DetermineBuy(); 
+                }
+            }
 
-            }
-            for (int i = 0; i < days.Count; i++)
-            {
-                //DetermineBuy(); 
-            }
         }
 
-        //public string ShowGameRules
-        //{
-        //    Console.WriteLine("Here are the rules." "\n" + "You have......");
-        //}
-            
-        public void ShowGameMenu()
+        public void ShowGameRules()
+        {
+            Console.WriteLine("Here are the rules." + "\n" + "You have Seven Days to sell lemonade and to make a profit" + "\n"+
+         "You can change the recipe of the lemonade and set how much you want to sell it for."+ "\n" +
+        "You will have 20 dollars to start. But youll have to go to the store to buy the ingredients." + "\n" +
+        "When making your lemonade, please take in that each customer will have their own taste prefernce. some will like Sweet, Tart or Smooth." + "\n" +
+         "Also the weather will be a factor on the customers choice on buying so keep that in mind.");
+        }
+
+    public void ShowGameMenu()
         {
             bool menuActive = true;
             while (menuActive)
@@ -111,6 +116,17 @@ namespace LemonadeStand
                 days.Add(day);
 
             }
-        }        
+        }
+
+        public void GetCustomers()
+        {
+            for (int i = 0; i < dayCount; i++)
+            {
+                Customer customer = new Customer();
+                customers.Add(customer);
+
+            }
+        }
+
     }
 }
