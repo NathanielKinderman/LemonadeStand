@@ -14,8 +14,7 @@ namespace LemonadeStand
         Store store;
         Player player;
         List<Customer> customers;
-        Player wallet;
-        //sotre will be call to sell lemons
+
 
 
         //constructor
@@ -27,6 +26,7 @@ namespace LemonadeStand
             store = new Store();
             player = new Player();
             customers = new List<Customer>();
+            
         }
 
         //member method(can do)
@@ -68,13 +68,14 @@ namespace LemonadeStand
             bool menuActive = true;
             while (menuActive)
             {
-                Console.WriteLine("What you like to Do? \n"+" " +"Inventory; Store; Recipe; Set Price; Start Selling.");
+                Console.WriteLine("What you like to Do?" + "\n" + "Inventory; Store; Recipe; Set Price; Start Selling.");
                 string choice = Console.ReadLine();
 
                 switch (choice)
                 {
                     case "Inventory":
                         Console.WriteLine("Here is your Inventory:");
+                        //inventory.DisplayInventory();
                         break;
 
                     case "Store":
@@ -85,7 +86,7 @@ namespace LemonadeStand
                     case "Recipe":
                         Console.WriteLine("Here is your Lemonade Recipe:");
                         // menu to view and modify recipe
-                        player.ShowLemonadeEquation();                        
+                        //inventory.ShowLemonadeEquation();                        
                         break;
 
                     case "Set Price":
