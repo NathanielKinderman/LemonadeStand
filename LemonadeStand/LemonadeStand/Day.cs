@@ -23,21 +23,24 @@ namespace LemonadeStand
             actualTempature = weather.GenerateNumberWithinRange(50, 100);
         }
 
-       
+
 
 
         ////member method(can do)
         /// the day need to have customers
         /// day needs to have the weather
-        //public int RunDay()
-        //{
-        //    // run the day
+        public int RunDay()
+        {
+            // run the day
 
-        //    int temperatureShift = GenerateNumberWithinRange(-10, 11);
-        //    actualTempature = GenerateNumberWithinRange(50, 100) + temperatureShift;
-        //    return = actualTempature;
+            int temperatureShift = weather.GenerateNumberWithinRange(-10, 11);
+            actualTempature = weather.GenerateNumberWithinRange(50, 100) + temperatureShift;
+            return actualTempature;
 
-        //}
+
+            //actualForecastOptions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
+            //actualForecast = DisplayWeather();
+        }
 
 
         //public override void RandomWeather()

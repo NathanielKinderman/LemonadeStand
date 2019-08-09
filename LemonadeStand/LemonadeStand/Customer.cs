@@ -8,16 +8,12 @@ namespace LemonadeStand
 {
     class Customer
     {
-        //member variable(has a)
-        //max willingness to pay
-        //temp threshhold
-        //base number percent to buy, will flex do to weather, temp, price
-        // ind x = rng.Next(1-101) chance to buy compare two numbers
+        
         public int chanceToBuy;
         public int numberToCompare;
-        string thisPref = "Sweet";
-        // public double wallet;
-        
+        //string thisPref = "Sweet";
+        public double wallet;
+        public double price;
         public List<string> tastePrefence;
 
         Random rng;
@@ -32,8 +28,8 @@ namespace LemonadeStand
         {
             GetCustomerBaseChanceToBuy();
             // Random pick taste preference from a list
-            tastePrefence = new List<string>() { "Sweet","Tart","Smooth"};
-            rng = new Random();
+            //tastePrefence = new List<string>() { "Sweet","Tart","Smooth"};
+            //rng = new Random();
         }
 
 
@@ -44,9 +40,10 @@ namespace LemonadeStand
 
             AdjustChanceBasedOnTemperature(weather);
             AdjustChanceBasedOnForecast(weather);
-            //CanAffordLemonade(price)
-         
-            
+            AdjustChanceOnBuyingOnPrice();
+
+
+
 
             bool customerWillBuy = CustomerDecision();
             // CustomerDecision based on chance to buy
@@ -57,7 +54,7 @@ namespace LemonadeStand
         public bool CustomerDecision()
         {
 
-            if (chanceToBuy < numberToCompare)
+            if (chanceToBuy > numberToCompare)
             {
                 return true;
             }
@@ -70,22 +67,16 @@ namespace LemonadeStand
         public void GetCustomerBaseChanceToBuy()
         {
             Random random = new Random();
-            chanceToBuy = random.Next(40, 60);
+            chanceToBuy = random.Next(40, 61);
         }
 
         public void CompareNumberToBuy()
         {
             Random random = new Random();
-            numberToCompare = random.Next(1, 100);
+            numberToCompare = random.Next(1, 101);
         }
 
-        //public void CanAffordLemonade()
-        //{
-        //    if(lemonadeprice == Customer wallet)
-              //  Customer.wallet - lemonade price = return results
-              //  results + player.wallet = Total profit
-        //}
-
+       
 
         public void AdjustChanceBasedOnTemperature(Weather weather)
         {
@@ -134,50 +125,28 @@ namespace LemonadeStand
                 chanceToBuy -= 10;
             }
         }
-        public void AdjustChanceBasedOnTasteAndRecipe(int sugar, int lemons, int ice)
+
+
+        public void AdjustChanceOnBuyingOnPrice()
         {
-            thisPref = tastePrefence[rng.Next(3)];
-            switch (thisPref)
+            Random random = new Random();
+            int treatyoself = random.Next(1, 3);
+
+            if(treatyoself == 1)
             {
-                case "Sweet":
-                    if (sugar > 5 && lemons < 2 && sugar < 20)
-                    {
-                        chanceToBuy += 5;
-                    }
-                    break;
-                case "Tart":
-                    if (sugar > 2 && lemons < 5 && lemons < 20)
-                    {
-                        chanceToBuy += 5;
-                    }
-                    
-                    break;
-
-                case "Smooth":
-                    if (sugar == lemons) 
-                    {
-                        chanceToBuy += 5;
-                    }
-                    break;
-
-                case "Cold":
-                    if (ice > 10)
-                    {
-                        chanceToBuy += 10;
-                    }
-                    break;
-
-                default:
-                    break;
+                chanceToBuy += 5;
             }
-
+            else
+            {
+                chanceToBuy -= 10;
+            }
         }
+       
 
-        //public void CustomerCanAfford()
-        //{//can afford the price will buy
-        //customer money = players price
-        //    //cant then dont buy
-
-        //}
     }
+
+        
+        
 }
+
+        

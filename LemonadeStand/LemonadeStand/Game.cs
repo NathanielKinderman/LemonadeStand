@@ -58,11 +58,12 @@ namespace LemonadeStand
             Console.WriteLine("Here are the rules." + "\n" + "You have Seven Days to sell lemonade and to make a profit" + "\n"+
          "You can change the recipe of the lemonade and set how much you want to sell it for."+ "\n" +
         "You will have 20 dollars to start. But youll have to go to the store to buy the ingredients." + "\n" +
-        "When making your lemonade, please take in that each customer will have their own taste prefernce. some will like Sweet, Tart or Smooth." + "\n" +
+        //"When making your lemonade, please take in that each customer will have their own taste prefernce. some will like Sweet, Tart or Smooth." 
+         "\n" +
          "Also the weather will be a factor on the customers choice on buying so keep that in mind.");
         }
 
-    public void ShowGameMenu()
+    public void ShowGameMenu() 
         {
             bool menuActive = true;
             while (menuActive)
@@ -78,7 +79,7 @@ namespace LemonadeStand
 
                     case "Store":
                         Console.WriteLine("Here is the Store");
-                        store.ShowStoreMenu();
+                        store.ShowStoreMenu(player);
                         break;
 
                     case "Recipe":

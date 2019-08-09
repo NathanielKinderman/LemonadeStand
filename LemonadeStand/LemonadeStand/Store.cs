@@ -9,20 +9,106 @@ namespace LemonadeStand
     class Store
     {
         //member variable(has a)
-        double lemon;
+        int lemons;
         int sugar;
         int ice;
         int cups;
 
 
+        
+        public string Inventory;
+        public double lemonPrice;
+        public double cupPrice;
+        public double icePrice;
+        public double sugarPrice;
+
+
         //constructor
-        //set price for items
-        //lemon = .45;
+
+           
+        public Store()
+        {
+           
+           Inventory = null;
+           lemonPrice = .25;
+           cupPrice = .15;
+           icePrice = .04;
+           sugarPrice = .30;
+        }
+
+        public void BuyLemons(Player player)
+        {
+            Console.WriteLine("How many lemons would you like to purchase?" );
+            int lemons = int.Parse(Console.ReadLine());
+            double cost = lemons * lemonPrice;
+            if (player.inventory.money >= cost)
+            {
+                player.inventory.lemons += lemons;
+                player.inventory.money -= cost;
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough money!");
+            }
+
+        }
+
+        public void BuyCups(Player player)
+        {
+            Console.WriteLine("How many Cups would you like to purchase?");
+            int cups = int.Parse(Console.ReadLine());
+            double cost = cups * cupPrice;
+            if (player.inventory.money >= cost)
+            {
+                player.inventory.cups += cups;
+                player.inventory.money -= cost;
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough money!");
+            }
+        }
+
+        public void BuySugar(Player player)
+        {
+            Console.WriteLine("How much Sugar would you like to purchase?");
+            int sugar = int.Parse(Console.ReadLine());
+            double cost = sugar * sugarPrice;
+            if (player.inventory.money >= cost)
+            {
+                player.inventory.sugar += sugar;
+                player.inventory.money -= cost;
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough money!");
+            }
+        }
+
+        public void BuyIce(Player player)
+        {
+            Console.WriteLine("How much Sugar would you like to purchase?");
+            int ice = int.Parse(Console.ReadLine());
+            double cost = ice * icePrice;
+            if (player.inventory.money >= cost)
+            {
+                player.inventory.ice += ice;
+                player.inventory.money -= cost;
+            }
+            else
+            {
+                Console.WriteLine("You dont have enough money!");
+            }
+        }
+
+
+
+
 
 
         //member method(can do)
 
-        public void ShowStoreMenu()
+        public void ShowStoreMenu(Player player)
         {
             bool storeMenu = true;
             while (storeMenu)
@@ -32,20 +118,17 @@ namespace LemonadeStand
                 switch (choice)
                 {
                     case "Lemons":
-                        Console.WriteLine("How many Lemons would you like to buy?");
-                        //lemons .45 per lemon
+                         BuyLemons(player);
+                                      
                         break;
                     case "Cups":
-                        Console.WriteLine("How many Cups would you like to buy?");
-                        //cups cost 2.05 per package of cups
+                        BuyCups(player);
                         break;
                     case "Sugar":
-                        Console.WriteLine("How many cups of Sugar would you like to buy?");
-                        //sugar cost .50 per cups of sugar
+                        BuySugar(player);
                         break;
                     case "Ice":
-                        Console.WriteLine("How much Ice would you like to buy?");
-                        //ice cost 1.75 per bag of ice
+                        BuyIce(player);
                         break;
                     case "Back to Game Menu":
                         storeMenu = false;

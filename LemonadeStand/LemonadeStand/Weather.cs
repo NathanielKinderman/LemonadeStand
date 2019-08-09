@@ -20,7 +20,7 @@ namespace LemonadeStand
         public Weather()
         {
             int temperatureShift = GenerateNumberWithinRange(-10, 11);
-            actualTempature = GenerateNumberWithinRange(50, 100) + temperatureShift;
+            actualTempature = GenerateNumberWithinRange(50, 100);
              forecastOptions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy"};
             forecast = DisplayWeather();
         }

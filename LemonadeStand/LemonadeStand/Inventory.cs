@@ -9,13 +9,23 @@ namespace LemonadeStand
     class Inventory
     {
         //member variable(has a)
-        int lemons;
-        int sugar;
-        int ice;
+        public double money;
+        public int lemons;
+        public int sugar;
+        public int ice;
+        public int cups;
 
 
         //constructor
+        public Inventory()
+        {
+            money = 25.00;
+            lemons = 0;
+            sugar = 0;
+            ice = 0;
+            cups = 0;
 
+        }
 
 
         //member method(can do)
