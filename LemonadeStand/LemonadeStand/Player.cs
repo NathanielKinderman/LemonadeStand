@@ -11,11 +11,13 @@ namespace LemonadeStand
         //member variable(has a)
         //player can only have forecast
         public Inventory inventory;
+        public double money;
 
         //constructor
         public Player()
         {
             inventory = new Inventory();
+            money = 25.00;
         }
 
         //member method(can do)

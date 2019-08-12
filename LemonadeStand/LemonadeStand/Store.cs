@@ -132,6 +132,7 @@ namespace LemonadeStand
                         break;
                     case "Back to Game Menu":
                         storeMenu = false;
+                        
                         break;
                     default:
                         break;
