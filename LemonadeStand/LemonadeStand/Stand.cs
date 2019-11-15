@@ -28,12 +28,13 @@ namespace LemonadeStand
 
         }
 
-        public void ShowLemonadeEquation()
+        public void ShowLemonadeEquation(Player player)
         {
             bool equationMenu = true;
             while (equationMenu)
             {
-                Console.WriteLine("How would you like to change the recipe? Add lemons, Remove lemons, Add sugar, Remove Sugar, Add ice, Remove sugar or Main menu");
+                DisplayRecipe();
+                Console.WriteLine("How would you like to change the recipe? Add lemons, Add sugar, Add ice, or Main menu");
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
@@ -66,11 +67,18 @@ namespace LemonadeStand
                 
             }
         }
+
+        public void DisplayRecipe()
+        {
+            Console.WriteLine("There is:" +" "+ lemonsInThePitcher +  "Lemons +" + " "+ sugarInThePitcher+" " + "Sugar +" +" " + iceCubesPerCup + "Ice in the Recipe.");
+        }
+
         public void SetUpPrice()
         {
-            int price;
+            double price;
             Console.WriteLine("How much would like to sell your lemonade for? Please set price between: .01 -.99");
-            price = Int32.Parse(Console.ReadLine());
+            price = Convert.ToDouble(Console.ReadLine());
+            priceOfLemonade = price;
         }
 
         public int HowManyLemons()
@@ -82,7 +90,10 @@ namespace LemonadeStand
         }
         public int AddTheLemons()
         {
+
             myInventory.lemons -= lemonsInThePitcher;
+            Console.WriteLine("You've added"+" " + lemonsInThePitcher + " " + "Lemons");
+            
             return myInventory.lemons;
         }
 
@@ -95,6 +106,7 @@ namespace LemonadeStand
         public int PourSomeSugar()
         {
             myInventory.sugar -= sugarInThePitcher;
+            Console.WriteLine("You've added " +" " +sugarInThePitcher + " " + "Sugar" );
             return myInventory.sugar;
         }
 
@@ -108,6 +120,7 @@ namespace LemonadeStand
         public int AddTheIce()
         {
             myInventory.ice -= iceCubesPerCup;
+            Console.WriteLine("You've added" + " " + iceCubesPerCup+ " " + "Ice Cubes");
             return myInventory.ice;
         }
 

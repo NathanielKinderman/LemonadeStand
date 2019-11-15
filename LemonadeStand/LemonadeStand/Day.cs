@@ -49,6 +49,7 @@ namespace LemonadeStand
             return random.Next(min, max);
         }
 
+        //How many customers should Visit the lemonade stand
         public List<string> CreateCustomers()
         {
             if(weather.actualTempature <= 59)

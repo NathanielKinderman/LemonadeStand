@@ -20,7 +20,7 @@ namespace LemonadeStand
         //constructor
         public Inventory()
         {
-            moneyToStart = 25.00;
+            
             lemons = 0;
             sugar = 0;
             ice = 0;

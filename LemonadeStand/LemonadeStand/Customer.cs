@@ -11,10 +11,9 @@ namespace LemonadeStand
         
         public int chanceToBuy;
         public int numberToCompare;
-        //string thisPref = "Sweet";
-        public double wallet;
-        public double price;
-        public List<string> tastePrefence;
+        
+        
+        
 
         Random rng;
 
@@ -27,6 +26,8 @@ namespace LemonadeStand
         public Customer()
         {
             GetCustomerBaseChanceToBuy();
+            CompareNumberToBuy();
+            CustomerDecision();
             // Random pick taste preference from a list
             //tastePrefence = new List<string>() { "Sweet","Tart","Smooth"};
             //rng = new Random();
