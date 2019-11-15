@@ -10,23 +10,27 @@ namespace LemonadeStand
     {
         //member variable(has a)
         int dayCount;
-        List<Day> days;
-        Store store;
+        Day thisDay;
+        Store theStore;
         Player player;
         List<Customer> customers;
-
-
+        public double moneyToStart;
+        public double moneyMade;
+        Stand theStand;
+        Inventory inventory;
 
         //constructor
 
         public Game()
         {
-            days = new List<Day>();
+            thisDay = new Day();
             dayCount = 7;
-            store = new Store();
+            theStore = new Store();
             player = new Player();
             customers = new List<Customer>();
-            
+            moneyToStart = 20.00;
+            theStand = new Stand();
+            inventory = new Inventory();
         }
 
         //member method(can do)
@@ -36,21 +40,18 @@ namespace LemonadeStand
            
            
 
-            GetDays();
+            //GetDays();
 
-            for (int i = 0; i < days.Count; i++)
+            for (int i = 0; i < dayCount; i++)
             {
 
                 ShowGameMenu();
 
-                //////
-               // days[i].RunDay();
-                for (int customer = 0; customer < days.Count; customer++)
-                {
-                   // Customer.DetermineBuy(); 
-                }
+                
+               
             }
-
+            
+            //GetCustomers();
         }
 
         public void ShowGameRules()
@@ -75,23 +76,24 @@ namespace LemonadeStand
                 {
                     case "Inventory":
                         Console.WriteLine("Here is your Inventory:");
-                        //inventory.DisplayInventory();
+                        inventory.DisplayInventory();
                         break;
 
                     case "Store":
                         Console.WriteLine("Here is the Store");
-                        store.ShowStoreMenu(player);
+                        theStore.ShowStoreMenu(player);
                         break;
 
                     case "Recipe":
                         Console.WriteLine("Here is your Lemonade Recipe:");
+                        theStand.ShowLemonadeEquation();
                         // menu to view and modify recipe
-                        //inventory.ShowLemonadeEquation();                        
+                                               
                         break;
 
                     case "Set Price":
                         Console.WriteLine("Here is the price you are selling at:");
-                        player.SetUpPrice();
+                        theStand.SetUpPrice();
                         // function to udate lemonade price
                         break;
                     case "Start Selling":
@@ -110,15 +112,15 @@ namespace LemonadeStand
 
         }
 
-        public void GetDays()
-        {
-            for (int i = 0; i < dayCount; i++)
-            {
-                Day day = new Day();
-                days.Add(day);
-
-            }
-        }
+        //public void GetDays()
+        //{
+        //    for (int i = 0; i < dayCount; i++)
+        //    {
+        //        Day day = new Day();
+        //        day.Add(day);
+                
+        //    }
+        //}
 
         public void GetCustomers()
         {
@@ -128,6 +130,26 @@ namespace LemonadeStand
                 customers.Add(customer);
 
             }
+        }
+        public void SellLemonade()
+        {
+            thisDay.CreateCustomers();
+            theStand.MakeAPitcher();
+            for(int i=0;i < thisDay.createCustomers.Count; i++)
+            {
+                theStand.cupsBoughtToday++;
+                inventory.cups--;
+                moneyMade += theStand.priceOfLemonade;
+                if(theStand.cupsBoughtToday == theStand.cupsPerPitcher)
+                {
+                    theStand.MakeAPitcher();
+                    theStand.cupsBoughtToday = 0;
+                }
+
+
+            }
+
+
         }
 
     }

@@ -41,10 +41,10 @@ namespace LemonadeStand
             Console.WriteLine("How many lemons would you like to purchase?" );
             int lemons = int.Parse(Console.ReadLine());
             double cost = lemons * lemonPrice;
-            if (player.inventory.money >= cost)
+            if (player.inventory.moneyToStart >= cost)
             {
                 player.inventory.lemons += lemons;
-                player.inventory.money -= cost;
+                player.inventory.moneyToStart -= cost;
             }
             else
             {
@@ -58,10 +58,10 @@ namespace LemonadeStand
             Console.WriteLine("How many Cups would you like to purchase?");
             int cups = int.Parse(Console.ReadLine());
             double cost = cups * cupPrice;
-            if (player.inventory.money >= cost)
+            if (player.inventory.moneyToStart >= cost)
             {
                 player.inventory.cups += cups;
-                player.inventory.money -= cost;
+                player.inventory.moneyToStart -= cost;
             }
             else
             {
@@ -74,10 +74,10 @@ namespace LemonadeStand
             Console.WriteLine("How much Sugar would you like to purchase?");
             int sugar = int.Parse(Console.ReadLine());
             double cost = sugar * sugarPrice;
-            if (player.inventory.money >= cost)
+            if (player.inventory.moneyToStart >= cost)
             {
                 player.inventory.sugar += sugar;
-                player.inventory.money -= cost;
+                player.inventory.moneyToStart -= cost;
             }
             else
             {
@@ -90,10 +90,10 @@ namespace LemonadeStand
             Console.WriteLine("How much Sugar would you like to purchase?");
             int ice = int.Parse(Console.ReadLine());
             double cost = ice * icePrice;
-            if (player.inventory.money >= cost)
+            if (player.inventory.moneyToStart >= cost)
             {
                 player.inventory.ice += ice;
-                player.inventory.money -= cost;
+                player.inventory.moneyToStart -= cost;
             }
             else
             {

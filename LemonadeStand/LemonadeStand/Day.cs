@@ -13,6 +13,7 @@ namespace LemonadeStand
         public Weather weather;
         public List<string> actualForecastOption;
         public int actualTempature;
+        public List<string> createCustomers;
 
 
         //constructor
@@ -21,6 +22,7 @@ namespace LemonadeStand
             actualForecastOption = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
             weather = new Weather();
             actualTempature = weather.GenerateNumberWithinRange(50, 100);
+            createCustomers = new List<string>();
         }
 
 
@@ -41,14 +43,45 @@ namespace LemonadeStand
             //actualForecastOptions = new List<string>() { "Sunny", "Rainy", "Cloudy", "Hazy" };
             //actualForecast = DisplayWeather();
         }
+        public int RandomNumber(int min , int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
 
+        public List<string> CreateCustomers()
+        {
+            if(weather.actualTempature <= 59)
+            {
+                createCustomers = new List<string>(new string[RandomNumber(40, 55)]);
+                return createCustomers;
 
-        //public override void RandomWeather()
-        //{
-        //    Random rnd = new Random();
-        //    int weatherIndex = rnd.Next(3);
+            }
+            else if(weather.actualTempature <= 69)
+            {
+                createCustomers = new List<string>(new string[RandomNumber(50, 65)]);
+                return createCustomers;
 
-        //    TodayWeather = RandomWeather[weatherIndex];
-        //}
+            }
+            else if (weather.actualTempature <= 79)
+            {
+                createCustomers = new List<string>(new string[RandomNumber(60, 75)]);
+                return createCustomers;
+
+            }
+            else if (weather.actualTempature <= 89)
+            {
+                createCustomers = new List<string>(new string[RandomNumber(70, 85)]);
+                return createCustomers;
+
+            }
+            else
+            {
+                createCustomers = new List<string>(new string[RandomNumber(80, 95)]);
+                return createCustomers;
+            }
+
+        }
+        
     }
 }
